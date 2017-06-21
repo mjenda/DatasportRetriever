@@ -1,11 +1,15 @@
-#ifndef DATASPORTHTMLGETTER_H
-#define DATASPORTHTMLGETTER_H
+#include <QObject>
+#include <QIODevice>
 
-
-class DatasportHtmlGetter
+class DatasportHtmlGetter : public QObject
 {
+    Q_OBJECT
 public:
-    DatasportHtmlGetter();
-};
+    DatasportHtmlGetter(QObject * parent);
 
-#endif // DATASPORTHTMLGETTER_H
+public slots:
+    void onFinished();
+
+private:
+    QString rawHtml;
+};

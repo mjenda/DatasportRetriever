@@ -1,6 +1,6 @@
 #pragma once
 
-#include <vector>
+#include <DatasportData.hpp>
 #include <QAbstractTableModel>
 
 class DatasportModel : public QAbstractTableModel
@@ -16,9 +16,9 @@ public:
                         int role = Qt::DisplayRole) const override;
 
 public slots:
-    void newData(const std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> & results);
+    void newData(const DatasportData & results);
 
 private:
-    std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> resultsData;
+    DatasportData resultsData;
 
 };

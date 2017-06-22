@@ -3,7 +3,7 @@
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 
-std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> DatasportParser::parse(const std::string &rawHtml)
+DatasportData DatasportParser::parse(const std::string &rawHtml)
 {
     auto columns = getColumns(rawHtml);
 
@@ -28,10 +28,10 @@ std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> Datas
     return {columns, lines};
 }
 
-std::vector<std::vector<std::string> > DatasportParser::getData(const std::string &rawHtml, int numberOfColumns)
+Rows DatasportParser::getData(const std::string &rawHtml, int numberOfColumns)
 {
-    std::vector<std::vector<std::string>> columns {};
-    std::vector<std::string> line {};
+    Rows rows {};
+    std::vector<std::string> row {};
 
     auto dom = parser.parseTree(rawHtml);
 
@@ -46,21 +46,21 @@ std::vector<std::vector<std::string> > DatasportParser::getData(const std::strin
         std::string data = std::next(it)->tagName();
 
         boost::trim(data);
-        line.push_back(data);
+        row.push_back(data);
         columnNumber++;
         if (columnNumber == numberOfColumns)
         {
             columnNumber = 0;
-            columns.push_back(line);
-            line.clear();
+            rows.push_back(row);
+            row.clear();
         }
     }
-    return columns;
+    return rows;
 }
 
-std::vector<std::string> DatasportParser::getColumns(const std::string &rawHtml)
+Headers DatasportParser::getColumns(const std::string &rawHtml)
 {
-    std::vector<std::string> columns {};
+    Headers columns {};
 
     auto dom = parser.parseTree(rawHtml);
 

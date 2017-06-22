@@ -25,7 +25,8 @@ HEADERS += \
         mainwindow.h \
     DatasportParser.h \
     DatasportHtmlGetter.h \
-    DatasportModel.h
+    DatasportModel.h \
+    DatasportData.hpp
 
 FORMS += \
         mainwindow.ui

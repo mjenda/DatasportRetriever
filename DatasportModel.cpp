@@ -39,7 +39,7 @@ QVariant DatasportModel::headerData(int section, Qt::Orientation orientation, in
     else return QAbstractTableModel::headerData(section, orientation, role);
 }
 
-void DatasportModel::newData(const std::pair<std::vector<std::string>, std::vector<std::vector<std::string> > > &results)
+void DatasportModel::newData(const DatasportData &results)
 {
     resultsData = results;
 

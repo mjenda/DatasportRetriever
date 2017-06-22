@@ -9,6 +9,7 @@
 #include <DatasportHtmlGetter.h>
 
 #include <QTextCodec>
+#include <QHeaderView>
 
 int main(int argc, char *argv[])
 {
@@ -16,6 +17,11 @@ int main(int argc, char *argv[])
 
     QTableView tableView {};
     DatasportModel model {};
+
+    tableView.verticalHeader ()->hide();
+    QHeaderView *verticalHeader = tableView.verticalHeader();
+    verticalHeader->setSectionResizeMode(QHeaderView::ResizeMode::Fixed);
+    verticalHeader->setDefaultSectionSize(20);
 
     tableView.setModel(&model);
 

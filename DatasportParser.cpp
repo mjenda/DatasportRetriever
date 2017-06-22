@@ -9,7 +9,7 @@ void DatasportParser::parse(const std::string &rawHtml)
 
     for (auto column : columns)
     {
-        std::cout << column << " # ";
+        std::cout << column << ";";
     }
 
     std::cout << std::endl;
@@ -20,7 +20,7 @@ void DatasportParser::parse(const std::string &rawHtml)
     {
         for (auto entry : line)
         {
-            std::cout << entry << " # ";
+            std::cout << entry << ";";
         }
         std::cout << std::endl;
     }

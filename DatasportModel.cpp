@@ -19,7 +19,6 @@ int DatasportModel::columnCount(const QModelIndex &parent) const
 
 QVariant DatasportModel::data(const QModelIndex &index, int role) const
 {
-
     if (role == Qt::DisplayRole)
     {
        return QString("Row%1, Column%2")

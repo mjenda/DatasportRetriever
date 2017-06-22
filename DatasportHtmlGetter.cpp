@@ -1,12 +1,10 @@
 #include "DatasportHtmlGetter.h"
-
 #include "DatasportParser.h"
 
 #include <QtNetwork/QNetworkAccessManager>
 #include <QtNetwork/QNetworkRequest>
 #include <QtNetwork/QNetworkReply>
-
-#include <iostream>
+#include <QTextCodec>
 
 DatasportHtmlGetter::DatasportHtmlGetter(QObject *parent)
     : QObject(parent), networkAccessManager(new QNetworkAccessManager(this)), chunks(0)
@@ -25,9 +23,8 @@ void DatasportHtmlGetter::get(int _competitionId)
 
 void DatasportHtmlGetter::onFinished()
 {
-    std::cout << chunks << std::endl;
     QIODevice * content = static_cast<QIODevice*>(QObject::sender());
-    QString results = content->readAll();
+    QString results = QTextCodec::codecForName("Windows-1250")->toUnicode(content->readAll());
 
     if (results.isEmpty())
     {

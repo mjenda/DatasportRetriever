@@ -8,6 +8,8 @@
 #include <QtNetwork/QNetworkReply>
 #include <DatasportHtmlGetter.h>
 
+#include <QTextCodec>
+
 int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);

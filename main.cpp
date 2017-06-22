@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
                          &model, &DatasportModel::newData);
 
 
-    getter.get(2200);
-    tableView.show();
+    getter.get(2020);
+    tableView.showMaximized();
     app.exec();
 }

@@ -18,12 +18,14 @@ SOURCES += \
         main.cpp \
         mainwindow.cpp \
     DatasportParser.cpp \
-    DatasportHtmlGetter.cpp
+    DatasportHtmlGetter.cpp \
+    DatasportModel.cpp
 
 HEADERS += \
         mainwindow.h \
     DatasportParser.h \
-    DatasportHtmlGetter.h
+    DatasportHtmlGetter.h \
+    DatasportModel.h
 
 FORMS += \
         mainwindow.ui

@@ -53,7 +53,6 @@ std::vector<std::vector<std::string> > DatasportParser::getData(const std::strin
             line.clear();
         }
     }
-    std::cout << "DUPA" << std::endl;
     return columns;
 }
 

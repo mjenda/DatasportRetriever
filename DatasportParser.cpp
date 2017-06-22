@@ -3,7 +3,7 @@
 #include <iostream>
 #include <boost/algorithm/string.hpp>
 
-void DatasportParser::parse(const std::string &rawHtml)
+std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> DatasportParser::parse(const std::string &rawHtml)
 {
     auto columns = getColumns(rawHtml);
 
@@ -24,6 +24,8 @@ void DatasportParser::parse(const std::string &rawHtml)
         }
         std::cout << std::endl;
     }
+
+    return {columns, lines};
 }
 
 std::vector<std::vector<std::string> > DatasportParser::getData(const std::string &rawHtml, int numberOfColumns)

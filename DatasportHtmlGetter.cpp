@@ -32,7 +32,9 @@ void DatasportHtmlGetter::onFinished()
     if (results.isEmpty())
     {
         DatasportParser parser;
-        parser.parse(rawHtml.toStdString());
+        auto result = parser.parse(rawHtml.toStdString());
+        emit finished(result);
+
         return;
     }
 

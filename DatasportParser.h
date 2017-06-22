@@ -7,7 +7,7 @@
 class DatasportParser
 {
 public:
-    void parse(const std::string & rawHtml);
+    std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> parse(const std::string & rawHtml);
 
 
 private:

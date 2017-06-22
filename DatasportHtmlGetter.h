@@ -1,6 +1,8 @@
 #include <QObject>
 #include <QIODevice>
 
+#include <vector>
+
 class QNetworkAccessManager;
 
 class DatasportHtmlGetter : public QObject
@@ -13,6 +15,9 @@ public:
 
 public slots:
     void onFinished();
+
+signals:
+    void finished(const std::pair<std::vector<std::string>, std::vector<std::vector<std::string>>> & data);
 
 private:
     void getChunk();

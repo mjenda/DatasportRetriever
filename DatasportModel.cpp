@@ -1,9 +1,22 @@
 #include "DatasportModel.h"
 #include <QDebug>
 #include <QStringList>
+#include <DatasportHtmlGetter.h>
 
-DatasportModel::DatasportModel(QObject *parent) : QAbstractTableModel(parent)
+DatasportModel::DatasportModel(QObject *parent)
+    : QAbstractTableModel(parent),
+      competitionId(-1),
+      resultsData(),
+      datasportHtmlGetter(new DatasportHtmlGetter(this))
 {
+    QObject::connect(datasportHtmlGetter, &DatasportHtmlGetter::finished,
+                         this, &DatasportModel::newData);
+}
+
+void DatasportModel::setCompetition(int _competitionId)
+{
+    competitionId = _competitionId;
+    datasportHtmlGetter->get(competitionId);
 }
 
 int DatasportModel::rowCount(const QModelIndex &parent) const

@@ -18,20 +18,15 @@ int main(int argc, char *argv[])
     QTableView tableView {};
     DatasportModel model {};
 
-    tableView.verticalHeader ()->hide();
     QHeaderView *verticalHeader = tableView.verticalHeader();
     verticalHeader->setSectionResizeMode(QHeaderView::ResizeMode::Fixed);
     verticalHeader->setDefaultSectionSize(20);
 
+    tableView.verticalHeader ()->hide();
     tableView.setModel(&model);
-
-    DatasportHtmlGetter getter;
-
-    QObject::connect(&getter, &DatasportHtmlGetter::finished,
-                         &model, &DatasportModel::newData);
-
-
-    getter.get(2020);
     tableView.showMaximized();
+
+    model.setCompetition(2020);
+
     app.exec();
 }

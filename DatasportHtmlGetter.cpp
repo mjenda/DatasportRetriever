@@ -13,6 +13,7 @@ DatasportHtmlGetter::DatasportHtmlGetter(QObject *parent)
 
 void DatasportHtmlGetter::get(int _competitionId)
 {
+    rawHtml = QString();
     chunks = 0;
     competitionId = _competitionId;
     getChunk();

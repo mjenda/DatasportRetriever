@@ -30,7 +30,7 @@ MainWindow::~MainWindow()
 
 void MainWindow::getNewData()
 {
-    int competitionId = ui->lineEdit->text().toInt();
+    int competitionId = ui->competitionIdLineEdit->text().toInt();
 
     if (competitionId == 0)
     {

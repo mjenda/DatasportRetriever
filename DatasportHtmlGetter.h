@@ -1,7 +1,8 @@
+#include "DatasportData.hpp"
+
 #include <QObject>
 #include <QIODevice>
 
-#include <DatasportData.hpp>
 
 class QNetworkAccessManager;
 

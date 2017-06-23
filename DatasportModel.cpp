@@ -1,7 +1,5 @@
 #include "DatasportModel.h"
-#include <QDebug>
-#include <QStringList>
-#include <DatasportHtmlGetter.h>
+#include "DatasportHtmlGetter.h"
 
 DatasportModel::DatasportModel(QObject *parent)
     : QAbstractTableModel(parent),

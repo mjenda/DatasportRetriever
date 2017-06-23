@@ -1,6 +1,7 @@
 #pragma once
 
-#include <DatasportData.hpp>
+#include "DatasportData.hpp"
+
 #include <QAbstractTableModel>
 
 class DatasportHtmlGetter;

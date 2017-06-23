@@ -1,14 +1,7 @@
-#include <DatasportModel.h>
+#include "DatasportModel.h"
 
 #include <QApplication>
-
 #include <QTableView>
-#include <QtNetwork/QNetworkAccessManager>
-#include <QtNetwork/QNetworkRequest>
-#include <QtNetwork/QNetworkReply>
-#include <DatasportHtmlGetter.h>
-
-#include <QTextCodec>
 #include <QHeaderView>
 
 int main(int argc, char *argv[])

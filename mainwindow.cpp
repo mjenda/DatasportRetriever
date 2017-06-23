@@ -15,7 +15,7 @@ MainWindow::MainWindow(QWidget *parent) :
     DatasportModel * model = new DatasportModel(this);
 
     QSortFilterProxyModel * proxyModel = new QSortFilterProxyModel(model);
-    proxyModel->sort(1);
+    proxyModel->setSortLocaleAware(true);
     proxyModel->setSourceModel(model);
 
     QHeaderView *verticalHeader = ui->tableView->verticalHeader();

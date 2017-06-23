@@ -3,6 +3,8 @@
 
 #include "DatasportModel.h"
 
+#include <QSortFilterProxyModel>
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
@@ -12,12 +14,18 @@ MainWindow::MainWindow(QWidget *parent) :
 
     DatasportModel * model = new DatasportModel(this);
 
+    QSortFilterProxyModel * proxyModel = new QSortFilterProxyModel(model);
+    proxyModel->sort(1);
+    proxyModel->setSourceModel(model);
+
     QHeaderView *verticalHeader = ui->tableView->verticalHeader();
     verticalHeader->setSectionResizeMode(QHeaderView::ResizeMode::Fixed);
     verticalHeader->setDefaultSectionSize(20);
 
     ui->tableView->verticalHeader ()->hide();
-    ui->tableView->setModel(model);
+    ui->tableView->setSortingEnabled(true);
+
+    ui->tableView->setModel(proxyModel);
     ui->tableView->showMaximized();
 
     getNewData();
@@ -37,5 +45,7 @@ void MainWindow::getNewData()
         return;
     }
 
-    qobject_cast<DatasportModel*>(ui->tableView->model())->setCompetition(competitionId);
+    auto proxySortModel = qobject_cast<QSortFilterProxyModel*>(ui->tableView->model());
+    auto datasportModel = qobject_cast<DatasportModel*>(proxySortModel->sourceModel());
+    datasportModel->setCompetition(competitionId);
 }

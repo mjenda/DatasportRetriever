@@ -19,7 +19,11 @@
      <widget class="QTableView" name="tableView"/>
     </item>
     <item>
-     <widget class="QLineEdit" name="lineEdit"/>
+     <widget class="QLineEdit" name="lineEdit">
+      <property name="text">
+       <string>2020</string>
+      </property>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">

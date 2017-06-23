@@ -8,7 +8,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
-
+    QObject::connect(ui->pushButton, &QPushButton::clicked, this, &MainWindow::getNewData);
 
     DatasportModel * model = new DatasportModel(this);
 
@@ -20,11 +20,22 @@ MainWindow::MainWindow(QWidget *parent) :
     ui->tableView->setModel(model);
     ui->tableView->showMaximized();
 
-    model->setCompetition(2020);
-
+    getNewData();
 }
 
 MainWindow::~MainWindow()
 {
     delete ui;
+}
+
+void MainWindow::getNewData()
+{
+    int competitionId = ui->lineEdit->text().toInt();
+
+    if (competitionId == 0)
+    {
+        return;
+    }
+
+    qobject_cast<DatasportModel*>(ui->tableView->model())->setCompetition(competitionId);
 }
